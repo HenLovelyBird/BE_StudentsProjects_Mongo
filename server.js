@@ -13,14 +13,14 @@ mongoose.connect(local,{useNewUrlParser: true})
 
 const server = express() 
 
-const port = 3003; //port number can be changed but also in .env
+const port = 3003; 
 
 server.use(express.json()); 
 server.use(cors());
-server.use('/students', studentsRouter)//http://localhost:3003/students, http://localhost:3003/students/students_id/projects/projects_id
+server.use('/students', studentsRouter)
 server.use('/projects', projectsRouter)
 
 console.log(listEndpoints(server))
-server.listen(port, () => { //port number and a callback, server run and listen to port
-    console.log(`Howdy! Your Server is running on port ${port}`); //`${can change port number}`
+server.listen(port, () => { 
+    console.log(`Howdy! Your Server is running on port ${port}`); 
 });

@@ -113,6 +113,8 @@ studentRouter.post("/:id/projects", async (req, res) => {
       const Project = await Student.findByIdAndUpdate(req.params.id, {
         $push: { projects: newProject }
       });
+      console.log(newProject)
+      await Project.create(Project)
       res.send(Project);
     } catch (error) {
       res.send(error);
