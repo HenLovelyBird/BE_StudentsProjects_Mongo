@@ -87,7 +87,7 @@ studentRouter.delete("/:id", async(req, res)=>{
 
 studentRouter.get("/:id/projects", async (req, res) => {
     try {
-        const student = await Student.findbyId(req.params.id, { projects: 10 } );
+        const student = await Student.findById(req.params.id, {projects: 5} );
         res.send(student.projects);
     } catch (error) {
         res.send(error)
@@ -126,9 +126,9 @@ studentRouter.patch("/:id/projects/:projid", async (req, res) => {
             {_id: new ObjectId(req.params.id), 
             "projects._id": new ObjectId(req.params.projid)}, 
             {"projects.$": req.body })
-        response.send("ok")
+        res.send(req.body + "ok")
     } catch (err) {
-      response.send(err);
+      await res.send(err);
     }
 })
 
