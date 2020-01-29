@@ -4,6 +4,8 @@ const projectsRouter = require("./src/projects/projects")
 const listEndpoints = require("express-list-endpoints");
 const cors = require("cors")
 const mongoose = require("mongoose")
+const dotenv = require("dotenv")
+dotenv.config()
 const db = require("./src/db/dbConnect")
 
 // const local ="mongodb://127.0.0.1:27017/dbStudents"
