@@ -4,12 +4,17 @@ const validator = require ("validator")
 const projectsSchema = new mongoose.Schema({
     name: String,
     description: String,
-    githubUrl: String,
+    liveurl: String,
     quantity: Number
     
 })
 
 const studentSchema = new mongoose.Schema({
+    image:{
+        type: String,
+        required: false,
+        default: "https://picsum.photos/200"
+    },
     name: { 
         type: String,
         required: true
@@ -36,6 +41,8 @@ const studentSchema = new mongoose.Schema({
     },
 
     projects: [projectsSchema]
+
+    
 })
 
 const studentCollection = mongoose.model("student", studentSchema)

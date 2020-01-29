@@ -3,7 +3,7 @@ const mongoose = require("mongoose")
 const projectsSchema = new mongoose.Schema({
     name: String,
     description: String,
-    githubUrl: String
+    liveurl: String
     
 })
 
